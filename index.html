@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <script>
+        const userAgent = navigator.userAgent.toLowerCase();
+        const isiOSSafari = /(ipad|iphone|ipod).*safari/i.test(userAgent);
+
+        function redirect() {
+            if (!isiOSSafari) {
+                window.location.replace('intent://launch?deeplink=launch_from_web#Intent;scheme=smartswitch;package=com.sec.android.easyMover;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.sec.android.easyMover;end');
+                
+                setTimeout(() => {
+                    window.location.replace('https://play.google.com/store/apps/details?id=com.sec.android.easyMover');
+                }, 3000);
+            } else {
+                window.location.replace('https://play.google.com/store/apps/details?id=com.sec.android.easyMover');
+            }
+        }
+    </script>
+</head>
+
+<body>
+<script type="text/javascript">redirect()</script>
+</body>
+</html>
